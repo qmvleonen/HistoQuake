@@ -1,0 +1,1324 @@
+import { useCallback } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+const FrameChild = styled.img`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1134px;
+  height: 646px;
+  object-fit: cover;
+  mix-blend-mode: color-dodge;
+`;
+const Top10Strongest = styled.div`
+  position: absolute;
+  top: 7px;
+  left: 37px;
+  display: flex;
+  align-items: center;
+  width: 616px;
+  height: 53px;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+`;
+const LandingPage = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 1134px;
+  height: 67px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 64px;
+  color: #fff;
+  font-family: "Markazi Text";
+`;
+const GroupChild = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 27px;
+`;
+const Date1 = styled.b`
+  position: absolute;
+  top: 6.2px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 14.6px;
+`;
+const RectangleParent = styled.div`
+  position: absolute;
+  top: 86px;
+  left: 0px;
+  width: 131px;
+  height: 27px;
+`;
+const Frame = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 326px;
+  width: 131px;
+  height: 113px;
+  overflow: hidden;
+`;
+const FrameItem = styled.div`
+  position: absolute;
+  top: 123px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame2 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 326px;
+  width: 131px;
+  height: 162px;
+  overflow: hidden;
+`;
+const FrameInner = styled.div`
+  position: absolute;
+  top: 552px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 36px;
+`;
+const Frame3 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 328px;
+  width: 131px;
+  height: 588px;
+  overflow: hidden;
+`;
+const FrameIcon = styled.img`
+  position: absolute;
+  top: 0px;
+  left: 328px;
+  width: 131px;
+  height: 543px;
+  overflow: hidden;
+`;
+const RectangleDiv = styled.div`
+  position: absolute;
+  top: 455px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame4 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 328px;
+  width: 131px;
+  height: 494px;
+  overflow: hidden;
+`;
+const FrameChild1 = styled.div`
+  position: absolute;
+  top: 361px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame5 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 325px;
+  width: 131px;
+  height: 400px;
+  overflow: hidden;
+`;
+const FrameIcon1 = styled.img`
+  position: absolute;
+  top: 0px;
+  left: 325px;
+  width: 131px;
+  height: 352px;
+  overflow: hidden;
+`;
+const FrameChild2 = styled.div`
+  position: absolute;
+  top: 265px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame6 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 326px;
+  width: 131px;
+  height: 304px;
+  overflow: hidden;
+`;
+const FrameChild3 = styled.div`
+  position: absolute;
+  top: 219px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 37px;
+`;
+const Frame7 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 325px;
+  width: 131px;
+  height: 256px;
+  overflow: hidden;
+`;
+const FrameChild4 = styled.div`
+  position: absolute;
+  top: 171px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame8 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 326px;
+  width: 131px;
+  height: 210px;
+  overflow: hidden;
+`;
+const FrameChild5 = styled.div`
+  position: absolute;
+  top: 409px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 37px;
+`;
+const Frame9 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 326px;
+  width: 131px;
+  height: 446px;
+  overflow: hidden;
+`;
+const FrameChild6 = styled.div`
+  position: absolute;
+  top: 410px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame10 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 449px;
+  overflow: hidden;
+`;
+const FrameChild7 = styled.div`
+  position: absolute;
+  top: 552px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame11 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 506px;
+  width: 131px;
+  height: 591px;
+  overflow: hidden;
+`;
+const FrameChild8 = styled.div`
+  position: absolute;
+  top: 505px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame12 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 506px;
+  width: 131px;
+  height: 544px;
+  overflow: hidden;
+`;
+const FrameChild9 = styled.div`
+  position: absolute;
+  top: 456px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame13 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 506px;
+  width: 131px;
+  height: 495px;
+  overflow: hidden;
+`;
+const FrameChild10 = styled.div`
+  position: absolute;
+  top: 362px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame14 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 401px;
+  overflow: hidden;
+`;
+const FrameChild11 = styled.div`
+  position: absolute;
+  top: 266px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame15 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 305px;
+  overflow: hidden;
+`;
+const FrameChild12 = styled.div`
+  position: absolute;
+  top: 314px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame16 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 504px;
+  width: 131px;
+  height: 353px;
+  overflow: hidden;
+`;
+const FrameChild13 = styled.div`
+  position: absolute;
+  top: 218px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame17 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 257px;
+  overflow: hidden;
+`;
+const FrameChild14 = styled.div`
+  position: absolute;
+  top: 219px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame18 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 258px;
+  overflow: hidden;
+`;
+const FrameChild15 = styled.div`
+  position: absolute;
+  top: 267px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame19 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 306px;
+  overflow: hidden;
+`;
+const Frame20 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 591px;
+  overflow: hidden;
+`;
+const FrameChild16 = styled.div`
+  position: absolute;
+  top: 504px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame21 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 543px;
+  overflow: hidden;
+`;
+const FrameChild17 = styled.div`
+  position: absolute;
+  top: 459px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame22 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 498px;
+  overflow: hidden;
+`;
+const FrameChild18 = styled.div`
+  position: absolute;
+  top: 411px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame23 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 450px;
+  overflow: hidden;
+`;
+const FrameChild19 = styled.div`
+  position: absolute;
+  top: 363px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame24 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 402px;
+  overflow: hidden;
+`;
+const FrameChild20 = styled.div`
+  position: absolute;
+  top: 315px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const Frame25 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 354px;
+  overflow: hidden;
+`;
+const Frame26 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 210px;
+  overflow: hidden;
+`;
+const Frame27 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 210px;
+  overflow: hidden;
+`;
+const Frame28 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 162px;
+  overflow: hidden;
+`;
+const Frame29 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 162px;
+  overflow: hidden;
+`;
+const Location1 = styled.b`
+  position: absolute;
+  top: 6px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 81px;
+  height: 13px;
+`;
+const Frame30 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 505px;
+  width: 131px;
+  height: 113px;
+  overflow: hidden;
+`;
+const Chile = styled.b`
+  position: absolute;
+  top: 133px;
+  left: 0px;
+`;
+const Frame31 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 352px;
+  width: 84px;
+  height: 151px;
+  overflow: hidden;
+`;
+const Frame32 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 550px;
+  width: 33px;
+  height: 151px;
+  overflow: hidden;
+`;
+const March = styled.b`
+  position: absolute;
+  top: 181px;
+  left: 0px;
+`;
+const Frame33 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 345px;
+  width: 98px;
+  height: 199px;
+  overflow: hidden;
+`;
+const December = styled.b`
+  position: absolute;
+  top: 229px;
+  left: 0px;
+`;
+const Frame34 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 327px;
+  width: 127px;
+  height: 247px;
+  overflow: hidden;
+`;
+const March1 = styled.b`
+  position: absolute;
+  top: 276px;
+  left: 0px;
+`;
+const Frame35 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 347px;
+  width: 90px;
+  height: 294px;
+  overflow: hidden;
+`;
+const November = styled.b`
+  position: absolute;
+  top: 324px;
+  left: 0px;
+`;
+const Frame36 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 335px;
+  width: 116px;
+  height: 342px;
+  overflow: hidden;
+`;
+const August = styled.b`
+  position: absolute;
+  top: 372px;
+  left: 0px;
+`;
+const Frame37 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 340px;
+  width: 101px;
+  height: 390px;
+  overflow: hidden;
+`;
+const January = styled.b`
+  position: absolute;
+  top: 418px;
+  left: 0px;
+`;
+const Frame38 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 337px;
+  width: 108px;
+  height: 436px;
+  overflow: hidden;
+`;
+const February = styled.b`
+  position: absolute;
+  top: 465px;
+  left: 0px;
+`;
+const Frame39 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 336px;
+  width: 113px;
+  height: 483px;
+  overflow: hidden;
+`;
+const January1 = styled.b`
+  position: absolute;
+  top: 514px;
+  left: 0px;
+`;
+const Frame40 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 339px;
+  width: 106px;
+  height: 532px;
+  overflow: hidden;
+`;
+const November1 = styled.b`
+  position: absolute;
+  top: 560px;
+  left: 0px;
+`;
+const Frame41 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 338px;
+  width: 112px;
+  height: 578px;
+  overflow: hidden;
+`;
+const KamchatkaSovietUnion = styled.p`
+  margin: 0;
+`;
+const KamchatkaSovietUnionContainer = styled.b`
+  position: absolute;
+  top: 172px;
+  left: 0px;
+`;
+const Frame42 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 530px;
+  width: 87px;
+  height: 226px;
+  overflow: hidden;
+`;
+const WestCoastNorthernContainer = styled.b`
+  position: absolute;
+  top: 219px;
+  left: 0px;
+`;
+const Frame43 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 511px;
+  width: 120px;
+  height: 255px;
+  overflow: hidden;
+`;
+const EastCoastOf = styled.b`
+  position: absolute;
+  top: 275px;
+  left: 0px;
+`;
+const Frame44 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 507px;
+  width: 125px;
+  height: 293px;
+  overflow: hidden;
+`;
+const KamchatkaSovietUnionContainer1 = styled.b`
+  position: absolute;
+  top: 315px;
+  left: 0px;
+  display: inline-block;
+  width: 90px;
+  height: 41px;
+`;
+const Frame45 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 526px;
+  width: 90px;
+  height: 356px;
+  overflow: hidden;
+`;
+const AricaPeru = styled.b`
+  position: absolute;
+  top: 371px;
+  left: 0px;
+`;
+const Frame46 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 535px;
+  width: 70px;
+  height: 389px;
+  overflow: hidden;
+`;
+const NorthPacificCoastContainer = styled.b`
+  position: absolute;
+  top: 412px;
+  left: 0px;
+  display: inline-block;
+  width: 129px;
+  height: 35px;
+`;
+const Frame47 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 507px;
+  width: 129px;
+  height: 447px;
+  overflow: hidden;
+`;
+const Lisbon = styled.b`
+  position: absolute;
+  top: 561px;
+  left: 0px;
+`;
+const Frame48 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 546px;
+  width: 44px;
+  height: 579px;
+  overflow: hidden;
+`;
+const BioBioChile = styled.b`
+  position: absolute;
+  top: 467px;
+  left: 0px;
+`;
+const Frame49 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 526px;
+  width: 91px;
+  height: 485px;
+  overflow: hidden;
+`;
+const CoastOfEcuador = styled.b`
+  position: absolute;
+  top: 515px;
+  left: 0px;
+`;
+const Frame50 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 516px;
+  width: 109px;
+  height: 533px;
+  overflow: hidden;
+`;
+const Frame51 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 20px;
+  height: 151px;
+  overflow: hidden;
+`;
+const B = styled.b`
+  position: absolute;
+  top: 178px;
+  left: 0px;
+`;
+const Frame52 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 20px;
+  height: 196px;
+  overflow: hidden;
+`;
+const B1 = styled.b`
+  position: absolute;
+  top: 228px;
+  left: 0px;
+`;
+const Frame53 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 17px;
+  height: 246px;
+  overflow: hidden;
+`;
+const B2 = styled.b`
+  position: absolute;
+  top: 277px;
+  left: 0px;
+`;
+const Frame54 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 732px;
+  width: 21px;
+  height: 295px;
+  overflow: hidden;
+`;
+const Frame55 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 732px;
+  width: 21px;
+  height: 342px;
+  overflow: hidden;
+`;
+const B3 = styled.b`
+  position: absolute;
+  top: 373px;
+  left: 0px;
+`;
+const Frame56 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 732px;
+  width: 21px;
+  height: 391px;
+  overflow: hidden;
+`;
+const B4 = styled.b`
+  position: absolute;
+  top: 422px;
+  left: 0px;
+`;
+const Frame57 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 732px;
+  width: 21px;
+  height: 440px;
+  overflow: hidden;
+`;
+const B5 = styled.b`
+  position: absolute;
+  top: 468px;
+  left: 0px;
+`;
+const Frame58 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 20px;
+  height: 486px;
+  overflow: hidden;
+`;
+const Frame59 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 20px;
+  height: 532px;
+  overflow: hidden;
+`;
+const Frame60 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 733px;
+  width: 18px;
+  height: 579px;
+  overflow: hidden;
+`;
+const Top10StrongestContainer = styled.b`
+  position: absolute;
+  top: 102px;
+  left: 1811px;
+`;
+const Top10Strongest1 = styled.div`
+  position: absolute;
+  top: -8px;
+  left: 0px;
+  font-size: 64px;
+  font-family: "Markazi Text";
+  color: #fff;
+  text-align: left;
+`;
+const Frame61 = styled.div`
+  position: absolute;
+  top: -1431px;
+  left: 544px;
+  width: 610px;
+  height: 60px;
+  overflow: hidden;
+  color: #efdfbb;
+`;
+const GroupInner = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 185px;
+  height: 48px;
+`;
+const Casualties = styled.b`
+  position: absolute;
+  top: 15px;
+  left: 59px;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+`;
+const RectangleContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 185px;
+  height: 48px;
+`;
+const GroupDiv = styled.div`
+  position: absolute;
+  top: 93px;
+  left: 0px;
+  width: 185px;
+  height: 48px;
+`;
+const Frame62 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 903px;
+  width: 185px;
+  height: 141px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+`;
+const BackToHome = styled.b`
+  position: absolute;
+  top: 16px;
+  left: 30px;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+`;
+const FrameInner1 = styled.div`
+  position: absolute;
+  top: 94px;
+  left: 0px;
+  width: 185px;
+  height: 48px;
+`;
+const Frame63 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 47px;
+  width: 185px;
+  height: 142px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+`;
+const RectangleParent1 = styled.div`
+  position: absolute;
+  top: 85px;
+  left: 0px;
+  width: 131px;
+  height: 27px;
+`;
+const Frame64 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 676px;
+  width: 131px;
+  height: 112px;
+  overflow: hidden;
+`;
+const VectorParentRoot = styled.div`
+  width: 100%;
+  height: 646px;
+  position: relative;
+  mix-blend-mode: normal;
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-family: "Inria Sans";
+`;
+
+const Frame1 = () => {
+  const navigate = useNavigate();
+
+  const onFrameContainer61Click = useCallback(() => {
+    navigate("/casualties-page");
+  }, [navigate]);
+
+  const onFrameContainer62Click = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  return (
+    <VectorParentRoot>
+      <FrameChild alt="" src="/rectangle-24@2x.png" />
+      <LandingPage>
+        <Top10Strongest>Top 10 Strongest Earthquake</Top10Strongest>
+      </LandingPage>
+      <Frame>
+        <RectangleParent>
+          <GroupChild />
+          <Date1>Date</Date1>
+        </RectangleParent>
+      </Frame>
+      <Frame2>
+        <FrameItem />
+      </Frame2>
+      <Frame3>
+        <FrameInner />
+      </Frame3>
+      <FrameIcon alt="" src="/frame.svg" />
+      <Frame4>
+        <RectangleDiv />
+      </Frame4>
+      <Frame5>
+        <FrameChild1 />
+      </Frame5>
+      <FrameIcon1 alt="" src="/frame1.svg" />
+      <Frame6>
+        <FrameChild2 />
+      </Frame6>
+      <Frame7>
+        <FrameChild3 />
+      </Frame7>
+      <Frame8>
+        <FrameChild4 />
+      </Frame8>
+      <Frame9>
+        <FrameChild5 />
+      </Frame9>
+      <Frame10>
+        <FrameChild6 />
+      </Frame10>
+      <Frame11>
+        <FrameChild7 />
+      </Frame11>
+      <Frame12>
+        <FrameChild8 />
+      </Frame12>
+      <Frame13>
+        <FrameChild9 />
+      </Frame13>
+      <Frame14>
+        <FrameChild10 />
+      </Frame14>
+      <Frame15>
+        <FrameChild11 />
+      </Frame15>
+      <Frame16>
+        <FrameChild12 />
+      </Frame16>
+      <Frame17>
+        <FrameChild13 />
+      </Frame17>
+      <Frame18>
+        <FrameChild14 />
+      </Frame18>
+      <Frame19>
+        <FrameChild15 />
+      </Frame19>
+      <Frame20>
+        <FrameChild7 />
+      </Frame20>
+      <Frame21>
+        <FrameChild16 />
+      </Frame21>
+      <Frame22>
+        <FrameChild17 />
+      </Frame22>
+      <Frame23>
+        <FrameChild18 />
+      </Frame23>
+      <Frame24>
+        <FrameChild19 />
+      </Frame24>
+      <Frame25>
+        <FrameChild20 />
+      </Frame25>
+      <Frame26>
+        <FrameChild4 />
+      </Frame26>
+      <Frame27>
+        <FrameChild4 />
+      </Frame27>
+      <Frame28>
+        <FrameItem />
+      </Frame28>
+      <Frame29>
+        <FrameItem />
+      </Frame29>
+      <Frame30>
+        <RectangleParent>
+          <GroupChild />
+          <Location1>Location</Location1>
+        </RectangleParent>
+      </Frame30>
+      <Frame31>
+        <Chile>May 22, 1960</Chile>
+      </Frame31>
+      <Frame32>
+        <Chile>Chile</Chile>
+      </Frame32>
+      <Frame33>
+        <March>March 28, 1964</March>
+      </Frame33>
+      <Frame34>
+        <December>December 26, 2004</December>
+      </Frame34>
+      <Frame35>
+        <March1>March 11, 2011</March1>
+      </Frame35>
+      <Frame36>
+        <November>November 4, 1952</November>
+      </Frame36>
+      <Frame37>
+        <August>August 13, 1868</August>
+      </Frame37>
+      <Frame38>
+        <January>January 26, 1700</January>
+      </Frame38>
+      <Frame39>
+        <February>February 27, 2010</February>
+      </Frame39>
+      <Frame40>
+        <January1>January 13, 1906</January1>
+      </Frame40>
+      <Frame41>
+        <November1>November 1, 1755</November1>
+      </Frame41>
+      <Frame42>
+        <KamchatkaSovietUnionContainer>
+          <KamchatkaSovietUnion>{`Kamchatka, 
+Soviet Union`}</KamchatkaSovietUnion>
+        </KamchatkaSovietUnionContainer>
+      </Frame42>
+      <Frame43>
+        <WestCoastNorthernContainer>
+          <KamchatkaSovietUnion>{`west coast `}</KamchatkaSovietUnion>
+          <KamchatkaSovietUnion>northern Sumatra</KamchatkaSovietUnion>
+        </WestCoastNorthernContainer>
+      </Frame43>
+      <Frame44>
+        <EastCoastOf>east coast of Japan</EastCoastOf>
+      </Frame44>
+      <Frame45>
+        <KamchatkaSovietUnionContainer1>
+          <KamchatkaSovietUnion>{`Kamchatka,
+ Soviet Union`}</KamchatkaSovietUnion>
+          <KamchatkaSovietUnion>&nbsp;</KamchatkaSovietUnion>
+        </KamchatkaSovietUnionContainer1>
+      </Frame45>
+      <Frame46>
+        <AricaPeru>Arica, Peru</AricaPeru>
+      </Frame46>
+      <Frame47>
+        <NorthPacificCoastContainer>
+          <KamchatkaSovietUnion>{` North Pacific coast 
+of America`}</KamchatkaSovietUnion>
+        </NorthPacificCoastContainer>
+      </Frame47>
+      <Frame48>
+        <Lisbon>Lisbon</Lisbon>
+      </Frame48>
+      <Frame49>
+        <BioBioChile> Bio-Bio, Chile</BioBioChile>
+      </Frame49>
+      <Frame50>
+        <CoastOfEcuador>coast of Ecuador</CoastOfEcuador>
+      </Frame50>
+      <Frame51>
+        <Chile>9.5</Chile>
+      </Frame51>
+      <Frame52>
+        <B>9.2</B>
+      </Frame52>
+      <Frame53>
+        <B1>9.1</B1>
+      </Frame53>
+      <Frame54>
+        <B2>9.0</B2>
+      </Frame54>
+      <Frame55>
+        <November>9.0</November>
+      </Frame55>
+      <Frame56>
+        <B3>9.0</B3>
+      </Frame56>
+      <Frame57>
+        <B4>9.0</B4>
+      </Frame57>
+      <Frame58>
+        <B5>8.8</B5>
+      </Frame58>
+      <Frame59>
+        <January1>8.8</January1>
+      </Frame59>
+      <Frame60>
+        <Lisbon>8.7</Lisbon>
+      </Frame60>
+      <Frame61>
+        <Top10StrongestContainer>
+          <KamchatkaSovietUnion>{`Top 10 Strongest `}</KamchatkaSovietUnion>
+          <KamchatkaSovietUnion>Earthquake</KamchatkaSovietUnion>
+        </Top10StrongestContainer>
+        <Top10Strongest1>Top 10 Strongest Earthquake</Top10Strongest1>
+      </Frame61>
+      <Frame62 onClick={onFrameContainer61Click}>
+        <GroupDiv>
+          <RectangleContainer>
+            <GroupInner />
+            <Casualties>Casualties</Casualties>
+          </RectangleContainer>
+        </GroupDiv>
+      </Frame62>
+      <Frame63 onClick={onFrameContainer62Click}>
+        <FrameInner1>
+          <RectangleContainer>
+            <GroupInner />
+            <BackToHome>Back to Home Page</BackToHome>
+          </RectangleContainer>
+        </FrameInner1>
+      </Frame63>
+      <Frame64>
+        <RectangleParent1>
+          <GroupChild />
+          <Location1>Magnitude</Location1>
+        </RectangleParent1>
+      </Frame64>
+    </VectorParentRoot>
+  );
+};
+
+export default Frame1;

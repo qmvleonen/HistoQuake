@@ -1,0 +1,1160 @@
+import { useCallback } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+const CasualtiesPageChild = styled.img`
+  position: absolute;
+  top: -7px;
+  left: 0px;
+  width: 1134px;
+  height: 646px;
+  object-fit: cover;
+  mix-blend-mode: normal;
+`;
+const CasualtiesPageItem = styled.div`
+  position: absolute;
+  top: 77px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 27px;
+`;
+const GroupChild = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 27px;
+`;
+const Date1 = styled.b`
+  position: absolute;
+  top: 6.2px;
+  left: 50px;
+  display: inline-block;
+  width: 31px;
+  height: 14.6px;
+`;
+const RectangleParent = styled.div`
+  position: absolute;
+  top: 77px;
+  left: 174px;
+  width: 131px;
+  height: 27px;
+`;
+const GroupItem = styled.div`
+  position: absolute;
+  top: 380px;
+  left: 2px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 36px;
+`;
+const GroupInner = styled.img`
+  position: absolute;
+  top: 332px;
+  left: 2px;
+  border-radius: 5px;
+  width: 131px;
+  height: 39px;
+`;
+const RectangleDiv = styled.div`
+  position: absolute;
+  top: 287px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const GroupChild1 = styled.div`
+  position: absolute;
+  top: 191px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const RectangleIcon = styled.img`
+  position: absolute;
+  top: 144px;
+  left: 2px;
+  border-radius: 5px;
+  width: 131px;
+  height: 38px;
+`;
+const GroupChild2 = styled.div`
+  position: absolute;
+  top: 95px;
+  left: 2px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const GroupChild3 = styled.div`
+  position: absolute;
+  top: 47px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 37px;
+`;
+const GroupChild4 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 38px;
+`;
+const RectangleWrapper = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  width: 131px;
+  height: 38px;
+`;
+const RectangleParent1 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 84px;
+`;
+const RectangleParent2 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 134px;
+`;
+const VectorGroup = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 182px;
+`;
+const GroupDiv = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 230px;
+`;
+const RectangleContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 326px;
+`;
+const VectorParent = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 133px;
+  height: 371px;
+`;
+const RectangleGroup = styled.div`
+  position: absolute;
+  top: 168px;
+  left: 172px;
+  width: 133px;
+  height: 416px;
+`;
+const GroupChild5 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner = styled.div`
+  position: absolute;
+  top: 407px;
+  left: 172px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner1 = styled.div`
+  position: absolute;
+  top: 407px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner2 = styled.div`
+  position: absolute;
+  top: 548px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner3 = styled.div`
+  position: absolute;
+  top: 500px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner4 = styled.div`
+  position: absolute;
+  top: 455px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner5 = styled.div`
+  position: absolute;
+  top: 359px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const RectangleFrame = styled.div`
+  position: absolute;
+  top: 48px;
+  left: 0px;
+  width: 131px;
+  height: 39px;
+`;
+const RectangleParent3 = styled.div`
+  position: absolute;
+  top: 263px;
+  left: 348px;
+  width: 131px;
+  height: 87px;
+`;
+const CasualtiesPageInner6 = styled.div`
+  position: absolute;
+  top: 215px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner7 = styled.div`
+  position: absolute;
+  top: 167px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner8 = styled.div`
+  position: absolute;
+  top: 119px;
+  left: 348px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageInner9 = styled.div`
+  position: absolute;
+  top: 119px;
+  left: 174px;
+  width: 131px;
+  height: 39px;
+`;
+const NoOfInjured = styled.b`
+  position: absolute;
+  top: 4px;
+  left: 180px;
+`;
+const Location1 = styled.b`
+  position: absolute;
+  top: 6px;
+  left: 25px;
+  display: inline-block;
+  width: 81px;
+  height: 13px;
+`;
+const RectangleParent4 = styled.div`
+  position: absolute;
+  top: 77px;
+  left: 348px;
+  width: 269px;
+  height: 27px;
+`;
+const May = styled.b`
+  position: absolute;
+  top: 129px;
+  left: 196px;
+`;
+const Chile = styled.b`
+  position: absolute;
+  top: 129px;
+  left: 396px;
+`;
+const March = styled.b`
+  position: absolute;
+  top: 177px;
+  left: 189px;
+`;
+const December = styled.b`
+  position: absolute;
+  top: 224px;
+  left: 174px;
+`;
+const March1 = styled.b`
+  position: absolute;
+  top: 273px;
+  left: 193px;
+`;
+const November = styled.b`
+  position: absolute;
+  top: 321px;
+  left: 180px;
+`;
+const August = styled.b`
+  position: absolute;
+  top: 369px;
+  left: 188px;
+`;
+const January = styled.b`
+  position: absolute;
+  top: 415px;
+  left: 183px;
+`;
+const February = styled.b`
+  position: absolute;
+  top: 465px;
+  left: 183px;
+`;
+const January1 = styled.b`
+  position: absolute;
+  top: 510px;
+  left: 186px;
+`;
+const November1 = styled.b`
+  position: absolute;
+  top: 556px;
+  left: 180px;
+`;
+const KamchatkaSovietUnion = styled.p`
+  margin: 0;
+`;
+const KamchatkaSovietUnionContainer = styled.b`
+  position: absolute;
+  top: 168px;
+  left: 370px;
+  display: inline-block;
+  width: 87px;
+  height: 38px;
+`;
+const WestCoastNorthernContainer = styled.b`
+  position: absolute;
+  top: 216px;
+  left: 353px;
+`;
+const EastCoastOf = styled.b`
+  position: absolute;
+  top: 273px;
+  left: 351px;
+`;
+const KamchatkaSovietUnionContainer1 = styled.b`
+  position: absolute;
+  top: 312px;
+  left: 368px;
+  display: inline-block;
+  width: 90px;
+  height: 41px;
+`;
+const AricaPeru = styled.b`
+  position: absolute;
+  top: 369px;
+  left: 379px;
+`;
+const NorthPacificCoastContainer = styled.b`
+  position: absolute;
+  top: 409px;
+  left: 349px;
+  display: inline-block;
+  width: 129px;
+  height: 35px;
+`;
+const Lisbon = styled.b`
+  position: absolute;
+  top: 556px;
+  left: 392px;
+`;
+const BioBioChile = styled.b`
+  position: absolute;
+  top: 465px;
+  left: 367px;
+`;
+const CoastOfEcuador = styled.b`
+  position: absolute;
+  top: 510px;
+  left: 358px;
+`;
+const Top10StrongestContainer = styled.b`
+  position: absolute;
+  top: 102px;
+  left: 1811px;
+`;
+const LandingPage = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 1134px;
+  height: 67px;
+  overflow: hidden;
+`;
+const LandingPageWrapper = styled.div`
+  position: absolute;
+  top: -7px;
+  left: 0px;
+  width: 1134px;
+  height: 67px;
+  color: #efdfbb;
+`;
+const Casualties = styled.div`
+  position: absolute;
+  top: -9px;
+  left: -27px;
+  font-size: 64px;
+  font-family: "Markazi Text";
+  color: #fff;
+  display: inline-block;
+  width: 355px;
+  height: 86px;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+`;
+const CasualtiesPageChild1 = styled.div`
+  position: absolute;
+  top: 119px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild2 = styled.div`
+  position: absolute;
+  top: 167px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild3 = styled.div`
+  position: absolute;
+  top: 215px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild4 = styled.div`
+  position: absolute;
+  top: 263px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild5 = styled.div`
+  position: absolute;
+  top: 311px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild6 = styled.div`
+  position: absolute;
+  top: 359px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild7 = styled.div`
+  position: absolute;
+  top: 407px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild8 = styled.div`
+  position: absolute;
+  top: 455px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild9 = styled.div`
+  position: absolute;
+  top: 503px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild10 = styled.div`
+  position: absolute;
+  top: 551px;
+  left: 507px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const B = styled.b`
+  position: absolute;
+  top: 561px;
+  left: 563px;
+`;
+const CasualtiesPageChild11 = styled.div`
+  position: absolute;
+  top: 77px;
+  left: 669px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 27px;
+`;
+const CasualtiesPageChild12 = styled.div`
+  position: absolute;
+  top: 77px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 27px;
+`;
+const NoOfDeaths = styled.b`
+  position: absolute;
+  top: 80px;
+  left: 691px;
+`;
+const CostOfCasualties = styled.b`
+  position: absolute;
+  top: 80px;
+  left: 839px;
+`;
+const CasualtiesPageChild13 = styled.div`
+  position: absolute;
+  top: 119px;
+  left: 669px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild14 = styled.div`
+  position: absolute;
+  top: 167px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild15 = styled.div`
+  position: absolute;
+  top: 214px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const Approx = styled.b`
+  position: absolute;
+  top: 225px;
+  left: 680px;
+`;
+const CasualtiesPageChild16 = styled.div`
+  position: absolute;
+  top: 263px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild17 = styled.div`
+  position: absolute;
+  top: 312px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild18 = styled.div`
+  position: absolute;
+  top: 360px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild19 = styled.div`
+  position: absolute;
+  top: 407px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild20 = styled.div`
+  position: absolute;
+  top: 455px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild21 = styled.div`
+  position: absolute;
+  top: 503px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild22 = styled.div`
+  position: absolute;
+  top: 551px;
+  left: 670px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild23 = styled.div`
+  position: absolute;
+  top: 119px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const Million = styled.b`
+  position: absolute;
+  top: 129px;
+  left: 854px;
+`;
+const CasualtiesPageChild24 = styled.img`
+  position: absolute;
+  top: 167px;
+  left: 831px;
+  border-radius: 5px;
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild25 = styled.div`
+  position: absolute;
+  top: 213px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild26 = styled.div`
+  position: absolute;
+  top: 263px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild27 = styled.div`
+  position: absolute;
+  top: 312px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild28 = styled.div`
+  position: absolute;
+  top: 359px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild29 = styled.div`
+  position: absolute;
+  top: 407px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild30 = styled.div`
+  position: absolute;
+  top: 455px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild31 = styled.div`
+  position: absolute;
+  top: 503px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const CasualtiesPageChild32 = styled.div`
+  position: absolute;
+  top: 551px;
+  left: 831px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  width: 131px;
+  height: 39px;
+`;
+const Approx1 = styled.b`
+  position: absolute;
+  top: 126px;
+  left: 692px;
+`;
+const B1 = styled.b`
+  position: absolute;
+  top: 129px;
+  left: 555px;
+`;
+const B2 = styled.b`
+  position: absolute;
+  top: 176px;
+  left: 724px;
+`;
+const Billion = styled.b`
+  position: absolute;
+  top: 177px;
+  left: 867px;
+`;
+const B3 = styled.b`
+  position: absolute;
+  top: 177px;
+  left: 564px;
+`;
+const Million1 = styled.b`
+  position: absolute;
+  top: 223px;
+  left: 861px;
+`;
+const B4 = styled.b`
+  position: absolute;
+  top: 273px;
+  left: 714px;
+`;
+const B5 = styled.b`
+  position: absolute;
+  top: 276px;
+  left: 556px;
+`;
+const Billion1 = styled.b`
+  position: absolute;
+  top: 273px;
+  left: 858px;
+`;
+const B6 = styled.b`
+  position: absolute;
+  top: 322px;
+  left: 713px;
+`;
+const B7 = styled.b`
+  position: absolute;
+  top: 465px;
+  left: 720px;
+`;
+const B8 = styled.b`
+  position: absolute;
+  top: 513px;
+  left: 885px;
+`;
+const B9 = styled.b`
+  position: absolute;
+  top: 466px;
+  left: 561px;
+`;
+const B10 = styled.b`
+  position: absolute;
+  top: 369px;
+  left: 563px;
+`;
+const B11 = styled.b`
+  position: absolute;
+  top: 559px;
+  left: 888px;
+`;
+const B12 = styled.b`
+  position: absolute;
+  top: 321px;
+  left: 564px;
+`;
+const B13 = styled.b`
+  position: absolute;
+  top: 223px;
+  left: 564px;
+`;
+const B14 = styled.b`
+  position: absolute;
+  top: 512px;
+  left: 725px;
+`;
+const B15 = styled.b`
+  position: absolute;
+  top: 415px;
+  left: 887px;
+`;
+const B16 = styled.b`
+  position: absolute;
+  top: 418px;
+  left: 563px;
+`;
+const B17 = styled.b`
+  position: absolute;
+  top: 415px;
+  left: 725px;
+`;
+const B18 = styled.b`
+  position: absolute;
+  top: 369px;
+  left: 726px;
+`;
+const B19 = styled.b`
+  position: absolute;
+  top: 561px;
+  left: 726px;
+`;
+const B20 = styled.b`
+  position: absolute;
+  top: 513px;
+  left: 563px;
+`;
+const Million2 = styled.b`
+  position: absolute;
+  top: 321px;
+  left: 861px;
+`;
+const B21 = styled.b`
+  position: absolute;
+  top: 369px;
+  left: 877px;
+`;
+const Million3 = styled.b`
+  position: absolute;
+  top: 466px;
+  left: 855px;
+`;
+const GroupChild6 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(100, 174, 169, 0.88);
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 125px;
+  height: 52px;
+`;
+const BackToHome = styled.b`
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85.1px;
+  height: 19.5px;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+`;
+const RectangleParent5 = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 125px;
+  height: 52px;
+`;
+const CasualtiesPageInner10 = styled.div`
+  position: absolute;
+  top: 83px;
+  left: 21px;
+  width: 125px;
+  height: 52px;
+  cursor: pointer;
+  color: #fff;
+`;
+const CasualtiesPageInner11 = styled.div`
+  position: absolute;
+  top: 83px;
+  left: 990px;
+  width: 125px;
+  height: 52px;
+  cursor: pointer;
+  color: #fff;
+`;
+const CasualtiesPageRoot = styled.div`
+  width: 100%;
+  height: 646px;
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-family: "Inria Sans";
+`;
+
+const CasualtiesPage = () => {
+  const navigate = useNavigate();
+
+  const onGroupContainer15Click = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onGroupContainer16Click = useCallback(() => {
+    navigate("/frame-3");
+  }, [navigate]);
+
+  return (
+    <CasualtiesPageRoot>
+      <CasualtiesPageChild alt="" src="/rectangle-24@2x.png" />
+      <CasualtiesPageItem />
+      <RectangleParent>
+        <GroupChild />
+        <Date1>Date</Date1>
+      </RectangleParent>
+      <RectangleGroup>
+        <GroupItem />
+        <VectorParent>
+          <GroupInner alt="" src="/rectangle-8.svg" />
+          <RectangleContainer>
+            <RectangleDiv />
+            <GroupDiv>
+              <GroupChild1 />
+              <VectorGroup>
+                <RectangleIcon alt="" src="/rectangle-81.svg" />
+                <RectangleParent2>
+                  <GroupChild2 />
+                  <RectangleParent1>
+                    <GroupChild3 />
+                    <RectangleWrapper>
+                      <GroupChild4 />
+                    </RectangleWrapper>
+                  </RectangleParent1>
+                </RectangleParent2>
+              </VectorGroup>
+            </GroupDiv>
+          </RectangleContainer>
+        </VectorParent>
+      </RectangleGroup>
+      <CasualtiesPageInner>
+        <GroupChild5 />
+      </CasualtiesPageInner>
+      <CasualtiesPageInner1>
+        <GroupChild5 />
+      </CasualtiesPageInner1>
+      <CasualtiesPageInner2>
+        <GroupChild5 />
+      </CasualtiesPageInner2>
+      <CasualtiesPageInner3>
+        <GroupChild5 />
+      </CasualtiesPageInner3>
+      <CasualtiesPageInner4>
+        <GroupChild5 />
+      </CasualtiesPageInner4>
+      <CasualtiesPageInner5>
+        <GroupChild5 />
+      </CasualtiesPageInner5>
+      <RectangleParent3>
+        <GroupChild5 />
+        <RectangleFrame>
+          <GroupChild5 />
+        </RectangleFrame>
+      </RectangleParent3>
+      <CasualtiesPageInner6>
+        <GroupChild5 />
+      </CasualtiesPageInner6>
+      <CasualtiesPageInner7>
+        <GroupChild5 />
+      </CasualtiesPageInner7>
+      <CasualtiesPageInner8>
+        <GroupChild5 />
+      </CasualtiesPageInner8>
+      <CasualtiesPageInner9>
+        <GroupChild5 />
+      </CasualtiesPageInner9>
+      <RectangleParent4>
+        <GroupChild />
+        <NoOfInjured>No. of injured</NoOfInjured>
+        <Location1>Location</Location1>
+      </RectangleParent4>
+      <May>May 22, 1960</May>
+      <Chile>Chile</Chile>
+      <March>March 28, 1964</March>
+      <December>December 26, 2004</December>
+      <March1>March 11, 2011</March1>
+      <November>November 4, 1952</November>
+      <August>August 13, 1868</August>
+      <January>January 26, 1700</January>
+      <February>February 27, 2010</February>
+      <January1>January 13, 1906</January1>
+      <November1>November 1, 1755</November1>
+      <KamchatkaSovietUnionContainer>
+        <KamchatkaSovietUnion>{`Kamchatka, 
+Soviet Union`}</KamchatkaSovietUnion>
+      </KamchatkaSovietUnionContainer>
+      <WestCoastNorthernContainer>
+        <KamchatkaSovietUnion>{`west coast `}</KamchatkaSovietUnion>
+        <KamchatkaSovietUnion>northern Sumatra</KamchatkaSovietUnion>
+      </WestCoastNorthernContainer>
+      <EastCoastOf>east coast of Japan</EastCoastOf>
+      <KamchatkaSovietUnionContainer1>
+        <KamchatkaSovietUnion>{`Kamchatka,
+ Soviet Union`}</KamchatkaSovietUnion>
+        <KamchatkaSovietUnion>&nbsp;</KamchatkaSovietUnion>
+      </KamchatkaSovietUnionContainer1>
+      <AricaPeru>Arica, Peru</AricaPeru>
+      <NorthPacificCoastContainer>
+        <KamchatkaSovietUnion>{` North Pacific coast 
+of America`}</KamchatkaSovietUnion>
+      </NorthPacificCoastContainer>
+      <Lisbon>Lisbon</Lisbon>
+      <BioBioChile> Bio-Bio, Chile</BioBioChile>
+      <CoastOfEcuador>coast of Ecuador</CoastOfEcuador>
+      <LandingPageWrapper>
+        <LandingPage>
+          <Top10StrongestContainer>
+            <KamchatkaSovietUnion>{`Top 10 Strongest `}</KamchatkaSovietUnion>
+            <KamchatkaSovietUnion>Earthquake</KamchatkaSovietUnion>
+          </Top10StrongestContainer>
+        </LandingPage>
+      </LandingPageWrapper>
+      <Casualties>Casualties</Casualties>
+      <CasualtiesPageChild1 />
+      <CasualtiesPageChild2 />
+      <CasualtiesPageChild3 />
+      <CasualtiesPageChild4 />
+      <CasualtiesPageChild5 />
+      <CasualtiesPageChild6 />
+      <CasualtiesPageChild7 />
+      <CasualtiesPageChild8 />
+      <CasualtiesPageChild9 />
+      <CasualtiesPageChild10 />
+      <B>---</B>
+      <CasualtiesPageChild11 />
+      <CasualtiesPageChild12 />
+      <NoOfDeaths>No. of Deaths</NoOfDeaths>
+      <CostOfCasualties>Cost of Casualties</CostOfCasualties>
+      <CasualtiesPageChild13 />
+      <CasualtiesPageChild14 />
+      <CasualtiesPageChild15 />
+      <Approx>Approx. 230,000 </Approx>
+      <CasualtiesPageChild16 />
+      <CasualtiesPageChild17 />
+      <CasualtiesPageChild18 />
+      <CasualtiesPageChild19 />
+      <CasualtiesPageChild20 />
+      <CasualtiesPageChild21 />
+      <CasualtiesPageChild22 />
+      <CasualtiesPageChild23 />
+      <Million>$550 million </Million>
+      <CasualtiesPageChild24 alt="" src="/rectangle-36.svg" />
+      <CasualtiesPageChild25 />
+      <CasualtiesPageChild26 />
+      <CasualtiesPageChild27 />
+      <CasualtiesPageChild28 />
+      <CasualtiesPageChild29 />
+      <CasualtiesPageChild30 />
+      <CasualtiesPageChild31 />
+      <CasualtiesPageChild32 />
+      <Approx1>Approx. 1,655</Approx1>
+      <B1>3,000</B1>
+      <B2>131 </B2>
+      <Billion>$1 billion</Billion>
+      <B3>50</B3>
+      <Million1>$10 million</Million1>
+      <B4>19,300</B4>
+      <B5>4,100</B5>
+      <Billion1>$235 billion</Billion1>
+      <B6>15,000</B6>
+      <B7>528</B7>
+      <B8>500</B8>
+      <B9>150</B9>
+      <B10>---</B10>
+      <B11>---</B11>
+      <B12>---</B12>
+      <B13>---</B13>
+      <B14>---</B14>
+      <B15>---</B15>
+      <B16>---</B16>
+      <B17>---</B17>
+      <B18>---</B18>
+      <B19>---</B19>
+      <B20>---</B20>
+      <Million2> $17 million</Million2>
+      <B21>25.000</B21>
+      <Million3>$550 million</Million3>
+      <CasualtiesPageInner10 onClick={onGroupContainer15Click}>
+        <RectangleParent5>
+          <GroupChild6 />
+          <BackToHome>Back to Home Page</BackToHome>
+        </RectangleParent5>
+      </CasualtiesPageInner10>
+      <CasualtiesPageInner11 onClick={onGroupContainer16Click}>
+        <RectangleParent5>
+          <GroupChild6 />
+          <BackToHome>Shaker Table</BackToHome>
+        </RectangleParent5>
+      </CasualtiesPageInner11>
+    </CasualtiesPageRoot>
+  );
+};
+
+export default CasualtiesPage;
